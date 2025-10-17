@@ -1,22 +1,9 @@
-document.getElementById('userForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const form = e.target;
-    const data = {
-        name: form.name.value,
-        phone: form.phone.value,
-        email: form.email.value,
-        address: form.address.value
-    };
-
-    const res = await fetch('/api/users', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-    });
-
-    const result = await res.json();
-    alert(result.message);
-    form.reset();
+import { postJson } from './api.js';
+document.getElementById('vaccineForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const data = { user_id: ..., vaccine_name: ..., next_due_date: ... };
+  const result = await postJson('/api/vaccinations', data);
+  alert(result.message);
 });
+
 
